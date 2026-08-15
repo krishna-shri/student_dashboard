@@ -7,7 +7,7 @@ import LeveragePanel from './LeveragePanel';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Sparkles } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { mergeClasses } from '../lib/utils';
 
 const SUGGESTIONS: Record<string, string> = {
   'answer-major': `I chose environmental engineering the summer my hometown's water plant failed. For six weeks my family boiled everything we drank, and I watched a two-person county crew try to explain turbidity readings to four hundred people at a school gymnasium. Nobody in that room lacked intelligence — they lacked a translator. I want to be the engineer who can both fix the filtration and stand up at the microphone afterward. I am two years into a program that has let me do a little of each: I model stormwater systems for a professor on Tuesdays and volunteer as a translator at county health meetings on Saturdays. The scholarship matters because I am the first in my family to attend a four-year school, and every semester I fund is a semester I do not have to defer.`,
@@ -77,7 +77,7 @@ export default function TaskRow({ task, isExpanded, onExpand, state, dispatch }:
     <div className="border border-border rounded-lg p-4 bg-card">
       <div className="flex items-center gap-2 mb-1">
         <span className="text-sm font-medium text-foreground">{artifact.label}</span>
-        <span className={cn(
+        <span className={mergeClasses(
           'text-xs px-2 py-0.5 rounded-full',
           task.reason === 'closes' ? 'bg-destructive/15 text-destructive'
           : task.reason === 'unblocks' ? 'bg-primary/15 text-primary'

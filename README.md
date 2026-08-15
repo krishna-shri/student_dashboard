@@ -44,6 +44,7 @@ The student (Maya) has 11 scholarship applications open, each with a mix of essa
 | UI primitives | Radix UI (Checkbox, accessible components) |
 | Icons | Lucide React |
 | Variants | class-variance-authority + clsx + tailwind-merge |
+| Formatter | Prettier + prettier-plugin-tailwindcss |
 | State | React `useReducer` — no external state library |
 | Persistence | None — all state in memory, resets on refresh |
 
@@ -54,8 +55,8 @@ The student (Maya) has 11 scholarship applications open, each with a mix of essa
 **Prerequisites:** Node.js 18+
 
 ```bash
-# Clone or navigate to the project
-cd project_1/student-dashboard
+# Navigate to the project folder
+cd student-dashboard
 
 # Install dependencies
 npm install
@@ -72,6 +73,12 @@ npm run build
 
 # Preview the production build
 npm run preview
+
+# Format all source files
+npm run format
+
+# Lint
+npm run lint
 ```
 
 ---

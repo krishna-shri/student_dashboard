@@ -1,6 +1,6 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Check } from 'lucide-react';
-import { cn } from '../../lib/utils';
+import { mergeClasses } from '../../lib/utils';
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 
 const Checkbox = forwardRef<
@@ -9,7 +9,7 @@ const Checkbox = forwardRef<
 >(({ className, ...props }, ref) => (
   <CheckboxPrimitive.Root
     ref={ref}
-    className={cn(
+    className={mergeClasses(
       'peer h-4 w-4 shrink-0 rounded border border-border shadow',
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
       'disabled:cursor-not-allowed disabled:opacity-50',

@@ -1,7 +1,7 @@
 import type { State } from '../types';
 import type { Dispatch } from '../App';
 import { filterCounts } from '../selectors';
-import { cn } from '../lib/utils';
+import { mergeClasses } from '../lib/utils';
 
 const LABELS: Record<string, string> = {
   all: 'All', 'needs-you': 'Needs you',
@@ -21,7 +21,7 @@ export default function FilterChips({ state, dispatch }: Props) {
           role="tab"
           aria-selected={state.filter === f}
           onClick={() => dispatch({ type: 'SET_FILTER', filter: f })}
-          className={cn(
+          className={mergeClasses(
             'px-3 py-1.5 rounded-full text-sm font-medium border transition-colors',
             state.filter === f
               ? 'bg-primary text-primary-foreground border-primary'

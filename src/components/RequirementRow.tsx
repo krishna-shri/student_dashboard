@@ -4,7 +4,7 @@ import type { Dispatch } from '../App';
 import { Checkbox } from './ui/checkbox';
 import { Button } from './ui/button';
 import { Clock, CheckCircle2, Upload, Loader2 } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { mergeClasses } from '../lib/utils';
 
 interface Props { artifact: Artifact; dispatch: Dispatch; appId?: AppId }
 
@@ -27,7 +27,7 @@ export default function RequirementRow({ artifact, dispatch, appId }: Props) {
           {isSatisfied
             ? <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
             : <div className="h-4 w-4 rounded border border-border shrink-0" />}
-          <span className={cn('text-sm', isSatisfied ? 'line-through text-muted-foreground' : 'text-foreground')}>
+          <span className={mergeClasses('text-sm', isSatisfied ? 'line-through text-muted-foreground' : 'text-foreground')}>
             {artifact.label}
           </span>
         </div>
@@ -55,7 +55,7 @@ export default function RequirementRow({ artifact, dispatch, appId }: Props) {
         />
         <label
           htmlFor={`confirm-${artifact.id}`}
-          className={cn('text-sm cursor-pointer flex-1', isSatisfied ? 'line-through text-muted-foreground' : 'text-foreground')}
+          className={mergeClasses('text-sm cursor-pointer flex-1', isSatisfied ? 'line-through text-muted-foreground' : 'text-foreground')}
         >
           {artifact.label}
         </label>
