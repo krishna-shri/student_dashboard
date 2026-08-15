@@ -1,5 +1,7 @@
 # Scholarship Dashboard — Student Dashboard
 
+**Live demo:** https://krishna-shri.github.io/student_dashboard/
+
 A one-page student dashboard that helps a college student manage an active scholarship application cycle. The central thesis is **leverage**: one essay answer can unblock multiple applications at once, and the dashboard makes that multiplier visible and actionable.
 
 ---
