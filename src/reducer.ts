@@ -11,6 +11,7 @@ export type Action =
   | { type: 'TOGGLE_EXPAND'; appId: AppId }
   | { type: 'SET_FILTER'; filter: Filter };
 
+// Finds all apps that depend on this artifact so the receipt can name them after a save or confirm.
 function affected(s: State, artifactId: ArtifactId) {
   const apps = s.applications.filter(
     (a) => a.status === 'in_progress' && a.needs.includes(artifactId),
@@ -67,6 +68,7 @@ export function reducer(state: State, action: Action): State {
       };
     }
 
+    // Guard: silently no-ops if any requirement is still unmet — prevents premature submission from the UI.
     case 'SUBMIT_APP': {
       const app = state.applications.find((a) => a.id === action.appId)!;
       if (remaining(app, state).length > 0) return state;

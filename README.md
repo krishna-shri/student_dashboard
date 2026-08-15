@@ -89,22 +89,28 @@ npm run lint
 
 ```
 src/
-  App.tsx            — root layout, dark/light toggle, nudge toast
-  types.ts           — all TypeScript types
-  seed.ts            — initial state and sample data
-  reducer.ts         — all state transitions (pure functions)
-  selectors.ts       — derived state: ranked tasks, standings, filters
+  main.tsx                       — entry point
+  App.tsx                        — root layout, dark/light toggle, nudge toast
+  types.ts                       — all TypeScript types
+  seed.ts                        — initial state and sample data
+  reducer.ts                     — all state transitions (pure functions)
+  selectors.ts                   — derived state: ranked tasks, standings, filters
+  index.css                      — Tailwind import, OKLCH CSS tokens, animations
   lib/
-    utils.ts         — cn() helper
+    utils.ts                     — mergeClasses() helper (clsx + tailwind-merge)
   components/
-    ui/              — shadcn-style primitives: Button, Badge, Checkbox, Textarea
-    StatusStrip      — where-you-stand summary and segmented bar
-    NextUpSection    — ranked task list with receipts
-    TaskRow          — individual task with Suggest button and leverage panel
-    LeveragePanel    — "this answer also satisfies" disclosure
-    ApplicationRow   — application card with expand, submit, and inline editor
-    RequirementRow   — individual requirement (essay, checkbox, upload, nudge)
-    FilterChips      — status filter tabs
-    ApplicationList  — filtered and ranked application list
-    SegmentedBar     — proportional progress bar
+    StatusStrip.tsx               — where-you-stand summary and segmented bar
+    SegmentedBar.tsx              — proportional progress bar used by StatusStrip
+    NextUpSection.tsx             — ranked task list with save/submit receipts
+    TaskRow.tsx                   — individual task: Suggest button, leverage panel, essay editor
+    LeveragePanel.tsx             — "this answer also satisfies" with app names, amounts, deadlines
+    FilterChips.tsx               — filter tabs: Needs you / Waiting / Ready / Closed
+    ApplicationList.tsx           — filtered and ranked application list
+    ApplicationRow.tsx            — application card: expand, submit button, inline artifact editor
+    RequirementRow.tsx            — single requirement row: essay, checkbox, upload, or nudge
+    ui/
+      button.tsx                  — CVA-based Button with variants
+      badge.tsx                   — CVA-based Badge with status variants
+      checkbox.tsx                — Radix UI Checkbox with custom styling
+      textarea.tsx                — styled Textarea
 ```

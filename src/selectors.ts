@@ -56,7 +56,9 @@ export interface Task {
   soonestDueInDays: number;
 }
 
+// Tasks belonging to apps closing within this many days are ranked first regardless of other factors.
 export const URGENT_DAYS = 3;
+// Only quick tasks (≤5 min) surface in the top-3 panel — longer work belongs in the full list.
 export const MAX_TOP_SLOT_MINUTES = 5;
 
 export function buildTasks(s: State): Task[] {
@@ -79,6 +81,7 @@ export function buildTasks(s: State): Task[] {
       const urgentTier: 0 | 1 = soonest <= URGENT_DAYS ? 0 : 1;
       const unblocks = apps.length;
 
+      // Priority: urgent deadline > unblocks multiple > last step before submitting > quick win
       const reason: ReasonCode =
         urgentTier === 0 ? 'closes'
         : unblocks > 1 ? 'unblocks'
@@ -100,6 +103,7 @@ export function buildTasks(s: State): Task[] {
     .filter((t) => t.unblocks > 0);
 }
 
+// Lower array values = higher priority. negating unblocks so more-unblocking tasks sort first.
 export function taskRank(t: Task): (number | string)[] {
   return [t.urgentTier, -t.unblocks, t.minRemaining, t.estMinutes, t.artifactId];
 }
@@ -144,6 +148,7 @@ export function matchesFilter(app: Application, s: State): boolean {
   }
 }
 
+// Always keeps lastActed apps visible even if the active filter would hide them — prevents the row from vanishing mid-interaction.
 export function visibleApplications(s: State): Application[] {
   return rankedApplications(s).filter(
     (app) => matchesFilter(app, s) || s.lastActed.appIds.includes(app.id),
