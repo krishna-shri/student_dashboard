@@ -8,8 +8,6 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
