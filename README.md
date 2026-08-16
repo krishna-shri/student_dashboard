@@ -8,7 +8,7 @@ A one-page student dashboard that helps a college student manage an active schol
 
 ## What the project does
 
-The student (Maya) has 11 scholarship applications open, each with a mix of essay answers, document uploads, and third-party requirements (recommendation letters, FAFSA confirmation). The dashboard:
+The student has 11 scholarship applications open, each with a mix of essay answers, document uploads, and third-party requirements (recommendation letters, FAFSA confirmation). The dashboard:
 
 - Ranks the top 3 tasks the student can finish right now and explains why each is ranked where it is
 - Shows which applications each essay feeds — "this answer also satisfies Hollings Family, Gates Millennium, and Coca-Cola Community" — before writing begins
