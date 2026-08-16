@@ -10,10 +10,10 @@ A one-page student dashboard that helps a college student manage an active schol
 
 The student (Maya) has 11 scholarship applications open, each with a mix of essay answers, document uploads, and third-party requirements (recommendation letters, FAFSA confirmation). The dashboard:
 
-- Ranks the top 3 tasks she can finish right now and explains why each is ranked where it is
-- Shows which applications each essay feeds — "this answer also satisfies Hollings Family, Gates Millennium, and Coca-Cola Community" — before she starts writing
+- Ranks the top 3 tasks the student can finish right now and explains why each is ranked where it is
+- Shows which applications each essay feeds — "this answer also satisfies Hollings Family, Gates Millennium, and Coca-Cola Community" — before writing begins
 - Surfaces a Submit button the moment an application is fully ready, records the submission, and updates a running dollar total
-- Lets her nudge recommendation letter owners, upload documents with a simulated upload flow, and enter her GPA via a select
+- Allows nudging recommendation letter owners, uploading documents with a simulated upload flow, and entering a GPA via a select
 - Reranks tasks and applications live after every action
 - Supports dark and light mode
 
